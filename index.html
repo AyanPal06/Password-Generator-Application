@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passward Generator</title>
+    <title>Password Generator</title>
     <link rel="icon" type="x-icon" href="./img/copy.svg"/>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,14 +16,14 @@
 <body>
     <div class="main_container">
         <div class="container">
-            <h1>Passward Generator</h1> 
+            <h1>Password Generator</h1> 
      
             <div class="display-container">
      
              <!-- here "data-passwardDisplay" is called as custom attribute
              we can fetch this html property using custom  attribute 
              it is another type of method of feaching data in js.-->
-                  <input readonly placeholder="Passward" class="display" data-passwardDisplay />
+                  <input readonly placeholder="Password" class="display" data-passwardDisplay />
                   <button  class="copybtn"data-copy>
                      <span class="tooltip" data-copyMsg></span>
                      <img src="./img/copy.svg" alt="copy" height="23" width="23">
@@ -32,7 +32,7 @@
             </div>
             <div class="input-container">
                  <div class="length-container">
-                      <p>Passward Length</p>
+                      <p>Password Length</p>
                       <p data-lengthNumber>0</p>
                  </div>
                  
@@ -60,7 +60,7 @@
                       <div class="indicator" data-indicator></div>
                  </div>
                  <!-- generate passward -->
-                 <button class="generateButton">Generate Passward</button>
+                 <button class="generateButton">Generate Password</button>
             </div>
          </div>
     </div>
