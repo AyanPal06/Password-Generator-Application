@@ -20,19 +20,31 @@ setIndicator("#ccc");
 //set passward length
 
 function handleSlider(){
-   inputSlider.value=passwardLength;
+    if (!passwardLength) {
+        passwardLength = 10;
+        inputSlider.value = passwardLength;
+    }
    lengthDisplay.innerText=passwardLength;  
-   const min=inputSlider.min;
-   const max=inputSlider.max;
-   inputSlider.style.backgroundSize=((passwardLength-min)*100)/(max-min)+"% 100%";
+   inputSlider.addEventListener('input', function() {
+    passwardLength = parseInt(inputSlider.value);
+    lengthDisplay.innerText = passwardLength;
+    const percentage = (inputSlider.value - inputSlider.min) / (inputSlider.max - inputSlider.min);
+    const color = `linear-gradient(to right, var(--vb-violet) ${percentage * 100}%, var(--lt-violet) ${percentage * 100}%)`;
+    inputSlider.style.background = color;
+ 
+    const thumbColor = passwardLength === parseInt(inputSlider.max) ? 'var(--lt-violet)' : 'var(--vb-violet)';
+    inputSlider.style.setProperty('--thumb-color', thumbColor);
+   });
+  
+
 }
-///error is here
+//error is here
 function setIndicator(color){
     indicators.style.backgroundColor=color;
     indicators.style.boxShadow=`0 0 12px 1px ${color}`;
 }
-function getRndInteger(min,max){
-     return Math.floor(Math.random()*(max-min))+min;
+function getRndInteger(min,max){    
+    return Math.floor(Math.random()*(max-min))+min;
 }
 function generateRandomNumber(){
     return getRndInteger(0,9);
@@ -134,7 +146,6 @@ generateBtn.addEventListener('click',()=>{
 
     //remove old passward
     passward="";
-
 
     //let's put the staff mentioned by checkbox
     // if(uppercaseCheck.checked){
