@@ -24,7 +24,7 @@ function handleSlider(){
    lengthDisplay.innerText=passwardLength;  
    const min=inputSlider.min;
    const max=inputSlider.max;
-   inputSlider.style.backgroundSize=((passwardLength-min)*100/(max-min))+"% 100%";
+   inputSlider.style.backgroundSize=((passwardLength-min)*100)/(max-min)+"% 100%";
 }
 ///error is here
 function setIndicator(color){
